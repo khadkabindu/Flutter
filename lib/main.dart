@@ -77,44 +77,74 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Second Screen"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // Navigate back to the first screen by popping the current route
-            // off the stack.
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-      ),
+      body: SafeArea(
+          child: Column(
+        children: <Widget>[
+          Container(
+            child: Image(
+              image: AssetImage('images/rsz_trip_sewa_1.png'),
+            ),
+          ),
+          Text(
+            'Create your account',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 30.0,
+              fontFamily: "RobotoMono",
+              fontWeight: FontWeight.bold,
+              color: Colors.blueGrey,
+            ),
+          ),
+          TextFormField(
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            decoration:
+                InputDecoration(hintText: "Fullname", icon: Icon(Icons.person)),
+          ),
+          TextFormField(
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            decoration:
+                InputDecoration(hintText: "Email", icon: Icon(Icons.email)),
+          ),
+          TextFormField(
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            decoration: InputDecoration(
+                hintText: "Password", icon: Icon(Icons.lock_open)),
+          ),
+          TextFormField(
+            validator: (value) {
+              if (value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+            decoration: InputDecoration(
+                hintText: "Confirm Password", icon: Icon(Icons.lock_open)),
+          ),
+          RaisedButton(
+            onPressed: () {
+              // Navigate back to the first screen by popping the current route
+              // off the stack.
+              Navigator.pop(context);
+            },
+            child: Text('Go back!'),
+          ),
+        ],
+      )),
     );
   }
 }
-//import 'package:flutter/material.dart';
-//
-//void main() {
-//  runApp(MyApp());
-//}
-//
-//class MyApp extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return MaterialApp(
-//      home: Scaffold(
-//        backgroundColor: Colors.lightBlueAccent,
-//        body: SafeArea(
-//            child: Column(
-//          children: <Widget>[
-//            CircleAvatar(
-//              radius: 50.0,
-//              backgroundImage: AssetImage('images/clip-travel.png'),
-//            )
-//          ],
-//        )),
-//      ),
-//    );
-//  }
-//}
