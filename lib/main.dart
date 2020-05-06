@@ -78,72 +78,101 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        children: <Widget>[
-          Container(
-            child: Image(
-              image: AssetImage('images/rsz_trip_sewa_1.png'),
+          child: Padding(
+        padding: EdgeInsets.all(50.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              ' TripSewa',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 45.0,
+                fontFamily: "RobotoMono",
+                fontWeight: FontWeight.bold,
+                color: Colors.blueGrey,
+              ),
             ),
-          ),
-          Text(
-            'Create your account',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 30.0,
-              fontFamily: "RobotoMono",
-              fontWeight: FontWeight.bold,
-              color: Colors.blueGrey,
+            SizedBox(
+              height: 40.0,
             ),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            decoration:
-                InputDecoration(hintText: "Fullname", icon: Icon(Icons.person)),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            decoration:
-                InputDecoration(hintText: "Email", icon: Icon(Icons.email)),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-                hintText: "Password", icon: Icon(Icons.lock_open)),
-          ),
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-                hintText: "Confirm Password", icon: Icon(Icons.lock_open)),
-          ),
-          RaisedButton(
-            onPressed: () {
-              // Navigate back to the first screen by popping the current route
-              // off the stack.
-              Navigator.pop(context);
-            },
-            child: Text('Go back!'),
-          ),
-        ],
+            Container(
+              height: 200.0,
+              width: 200.0,
+              child: Image.asset('images/tourist.png'),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                hintText: "Email",
+                labelText: "Email",
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: "Password",
+                labelText: "Password",
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            new RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0)),
+              color: Colors.blue,
+              onPressed: () {
+                // Navigate back to the first screen by popping the current route
+                // off the stack.
+                Navigator.pop(context);
+              },
+              child: new Text(
+                'Sign in',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 30.0,
+            ),
+            Text(
+              '-OR-',
+              style: TextStyle(color: Colors.blueGrey),
+              textAlign: TextAlign.center,
+            ),
+            Image(
+              image: AssetImage('images/btn_google_light_normal_ios.png'),
+              height: 50.0,
+            ),
+          ],
+        ),
       )),
     );
   }
