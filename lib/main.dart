@@ -9,6 +9,7 @@ void main() {
       routes: {
         '/': (context) => FirstPage(),
         '/second': (context) => SecondPage(),
+        '/register': (context) => RegisterPage(),
       },
     ),
   );
@@ -167,13 +168,187 @@ class SecondPage extends StatelessWidget {
               style: TextStyle(color: Colors.blueGrey),
               textAlign: TextAlign.center,
             ),
-            Image(
-              image: AssetImage('images/btn_google_light_normal_ios.png'),
-              height: 50.0,
+            SizedBox(
+              height: 30.0,
+            ),
+            InkWell(
+              onTap: () {
+                print("Container was tapped");
+              },
+              child: Container(
+                color: Colors.blue,
+                width: 200.0,
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      'images/google.png',
+                      height: 50.0,
+                    ),
+                    Text(
+                      'Sign in with google',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Robotomono",
+                          color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 40.0,
+            ),
+            Center(
+              child: Container(
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "Don't have an account?",
+                      textAlign: TextAlign.center,
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, "/register");
+                        },
+                        child: Text(
+                          " create now",
+                          style: TextStyle(color: Colors.blueAccent),
+                        )),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
       )),
+    );
+  }
+}
+
+class RegisterPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.all(50.0),
+        child: SafeArea(
+            child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              ' TripSewa',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 45.0,
+                fontFamily: "RobotoMono",
+                fontWeight: FontWeight.bold,
+                color: Colors.blueGrey,
+              ),
+            ),
+            SizedBox(
+              height: 80.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                hintText: "Fullname",
+                labelText: "Fullname",
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                hintText: "Email",
+                labelText: "Email",
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: "Password",
+                labelText: "Password",
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                if (value.isEmpty) {
+                  return 'Please enter some text';
+                }
+                return null;
+              },
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: " Confirm Password",
+                labelText: "Confirm Password",
+                border: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(
+                    const Radius.circular(10.0),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            new RaisedButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0)),
+              color: Colors.blue,
+              onPressed: () {
+                // Navigate back to the first screen by popping the current route
+                // off the stack.
+              },
+              child: new Text(
+                'Sign up',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        )),
+      ),
     );
   }
 }
